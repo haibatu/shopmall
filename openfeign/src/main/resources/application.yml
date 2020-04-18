@@ -1,0 +1,31 @@
+server:
+  port: 8200
+
+spring:
+  application:
+    name: openfeign
+  cloud:
+#    consul:
+#      host: localhost
+#      port: 8500
+#      discovery:
+#        register: true
+    admin:
+      client:
+        url: http://localhost:8400 #配置admin地址
+#eureka 服务注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/ #注册服务的地址
+management: #开启SpringBoot Admin的监控
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+logging:
+  level:
+    org.springframework.cloud.gateway: debug

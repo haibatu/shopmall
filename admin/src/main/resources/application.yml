@@ -1,0 +1,22 @@
+server:
+  port: 8400
+
+spring:
+  application: #设置服务名称
+    name: admin
+  security: #设置admin监控的用户名和密码
+    user:
+      password: root
+      name: root
+  boot: #不显示admin的监控信息
+    admin:
+      discovery:
+        ignored-services: ${spring.application.name}
+
+
+eureka: #eureka 服务注册中心
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8000/eureka/ #注册服务的地址

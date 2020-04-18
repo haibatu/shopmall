@@ -1,0 +1,45 @@
+##伪集群
+## java -jar eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=server1
+## java -jar eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=server2
+## java -jar eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=server3
+#spring:
+#  application:
+#    name: eureka
+#  profiles: server1
+#server:
+#  port: 8001
+#eureka:
+#  instance:
+#    hostname: server1
+#    prefer-ip-address: false
+#  client:
+#    service-url:
+#      defaultZone: http://server2:8002/eureka/,http://server3:8003/eureka/
+#--- #三个横杠代表分隔，是yml的语法
+#spring:
+#  application:
+#    name: eureka
+#  profiles: server2
+#server:
+#  port: 8002
+#eureka:
+#  instance:
+#    hostname: server2
+#    prefer-ip-address: false
+#  client:
+#    service-url:
+#      defaultZone: http://server1:8001/eureka/,http://server3:8003/eureka/
+#---
+#spring:
+#  application:
+#    name: eureka
+#  profiles: server3
+#server:
+#  port: 8003
+#eureka:
+#  instance:
+#    hostname: server3
+#    prefer-ip-address: false
+#  client:
+#    service-url:
+#      defaultZone: http://server2:8002/eureka/,http://server1:8001/eureka/

@@ -1,0 +1,21 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: eureka
+
+
+eureka:
+  instance:
+    hostname: localhost #主机
+  client:
+    #是否从eureka server中获取注册信息，默认是true，如果这是一个单节点 eureka server
+    #不需要同步其他节点的数据，就设置为false
+    fetch-registry: false
+    #是否将自己注册到eureka server上，默认是true
+    #由于当前应用是单节点的 eureka server，需要设置为false
+    register-with-eureka: false
+    #设置eureka server的地址，查询服务和注册服务都需要依赖这个地址
+    server:
+      enable-self-preservation: false #关闭保护模式
